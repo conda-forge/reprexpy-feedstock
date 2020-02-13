@@ -10,7 +10,7 @@ source:
   sha256: 847dd3a6584b26c8f02f5a61f23b3d548d745a56da4ad6788c1e3129a8a0d6ca
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
 
@@ -25,7 +25,7 @@ requirements:
     - asttokens
     - ipykernel
     - ipython
-    - matplotlib
+    - matplotlib-base
     - nbconvert
     - nbformat
     - pyimgur
