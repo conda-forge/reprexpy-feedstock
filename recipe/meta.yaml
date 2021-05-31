@@ -12,12 +12,12 @@ source:
 build:
   number: 0
   noarch: python
-  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  script: '{{ PYTHON }} -m pip install . -vv'
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
     # This currently a hard dependency on installation.
     # Can be removed once https://github.com/crew102/reprexpy/pull/3 is merged
     - pytest-runner
@@ -30,7 +30,7 @@ requirements:
     - nbformat
     - pyimgur
     - pyperclip
-    - python
+    - python >=3.6
     - setuptools
     - stdlib-list
     - tornado <=5.1.1
@@ -38,10 +38,6 @@ requirements:
 test:
   imports:
     - reprexpy
-  requires:
-    - pickledb
-    - pytest
-    - pyzmq
 
 about:
   home: https://reprexpy.readthedocs.io/en/latest
