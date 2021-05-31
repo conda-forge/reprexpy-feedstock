@@ -1,18 +1,18 @@
 {% set name = "reprexpy" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 847dd3a6584b26c8f02f5a61f23b3d548d745a56da4ad6788c1e3129a8a0d6ca
+  sha256: 8feca3d2ae8a7173fe19152396a0fa14fe03cd36ff38e403b13f897b7dff12bc
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
 
 requirements:
   host:
