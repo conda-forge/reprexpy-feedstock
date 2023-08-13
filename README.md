@@ -1,11 +1,11 @@
-About reprexpy
-==============
+About reprexpy-feedstock
+========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/reprexpy-feedstock/blob/main/LICENSE.txt)
 
 Home: https://reprexpy.readthedocs.io/en/latest
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/reprexpy-feedstock/blob/main/LICENSE.txt)
 
 Summary: Render reproducible examples of Python code (port of R package `reprex`)
 
