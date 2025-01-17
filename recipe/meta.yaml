@@ -6,18 +6,18 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 62e9a3f8fb9c6803389c23659d64cd9e6d95bddf994796dfb22ff8d0dad80226
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: '{{ PYTHON }} -m pip install . -vv'
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     # This currently a hard dependency on installation.
     # Can be removed once https://github.com/crew102/reprexpy/pull/3 is merged
     - pytest-runner
@@ -30,12 +30,14 @@ requirements:
     - nbformat
     - pyimgur
     - pyperclip
-    - python >=3.6
+    - python >={{ python_min }}
     - setuptools
     - stdlib-list
     - tornado <=5.1.1
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - reprexpy
 
