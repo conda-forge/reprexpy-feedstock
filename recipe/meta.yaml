@@ -1,5 +1,5 @@
 {% set name = "reprexpy" %}
-{% set version = "0.3.3" %}
+{% set version = "0.3.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 62e9a3f8fb9c6803389c23659d64cd9e6d95bddf994796dfb22ff8d0dad80226
+  sha256: 436d0ae9ee5f1635a19e294e2f538467937aa5363e56153b7ab25efa6bea2ae9
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: '{{ PYTHON }} -m pip install . -vv'
 
