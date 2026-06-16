@@ -1,0 +1,59 @@
+schema_version: 1
+
+context:
+  name: reprexpy
+  version: "0.3.4"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 436d0ae9ee5f1635a19e294e2f538467937aa5363e56153b7ab25efa6bea2ae9
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+    # This currently a hard dependency on installation.
+    # Can be removed once https://github.com/crew102/reprexpy/pull/3 is merged
+    - pytest-runner
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - pyperclip
+    - asttokens
+    - nbconvert
+    - nbformat
+    - matplotlib-base
+    - ipython
+    - pyimgur
+    - stdlib-list
+    - ipykernel
+    - tornado
+
+tests:
+  - python:
+      imports:
+        - reprexpy
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - '*'
+
+about:
+  license: MIT
+  license_file: LICENSE.txt
+  summary: Render reproducible examples of Python code (port of R package `reprex`)
+  homepage: https://reprexpy.readthedocs.io/en/latest
+  repository: https://github.com/crew102/reprexpy
+
+extra:
+  recipe-maintainers:
+    - xhochy
